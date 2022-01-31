@@ -6,7 +6,7 @@ do
 echo $output
 if [ "$output" == "$svcstat" ]; then
     service $svc start
-    echo "$svc service is UP now.!" | mail -s "$svc service was DOWN and restarted now On $(hostname)" khadarmd7@gmail.com #should install mailutils and setup before proceeding
+    echo "$svc service is UP now.!" | mail -s "$svc service was DOWN and restarted now On $(hostname)" yuvalakshman66@gmail.com #should install mailutils and setup before proceeding
     else
     echo "$serv service is running"
     fi
