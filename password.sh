@@ -1,11 +1,14 @@
 #!/bin/bash
-echo "Enter the password"
-read password
-len=`echo ${#password}`
-if test $len -gt 8
-then
-echo $password | grep [A-Za-z][0-9] | grep "[@#$%^&*]"
-echo "strong password"
-else
-echo "Password must contain atleast 1 uppercase, lowercase, digits and special characters"
+read -p "Please enter password: " PASS
+COUNT=`echo ${#PASS}`
+if [[ $COUNT -lt 8 ]]; then
+echo "Password must be of atleast 8 characters!"
+exit 1
 fi
+#echo "$PASS"
+echo $PASS | grep "[a-z]" | grep "[A-Z]" | grep "[0-9]" | grep "[@#$%^&*]"
+if [[ $? -ne 0 ]]; then
+echo "Password must contain atleast 1 uppercase, lowercase, digits and special characters"
+exit 2
+fi
+echo "Strong Password"
